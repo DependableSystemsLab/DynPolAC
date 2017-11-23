@@ -51,7 +51,7 @@ def parseXMLPolicyFile(policyFile):
           elif attribute.tag == "time":
             time = attribute.text
             valueDict["time"] = time
-          elif attribute.tag == "user":
+          elif attribute.tag == "user" and attribute.text:
             user = attribute.text.split(',')
 	    userNewArray =[]
 	    for u in user:
@@ -62,7 +62,7 @@ def parseXMLPolicyFile(policyFile):
 		else:
 			userNewArray.append(globalUserDict[u])
             valueDict["user"] = userNewArray
-          elif attribute.tag == "group":
+          elif (attribute.tag == "group") and attribute.text:
             group = attribute.text.split(',')
 	    groupNewArray =[]
 	    for g in group:

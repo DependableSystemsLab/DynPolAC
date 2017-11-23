@@ -10,7 +10,7 @@ import pprint
 import xml.etree.ElementTree as etree    
 from datetime import datetime
 import helper
-isBitVec = True
+
 
 def addConstraintsInSolver(conflictedPolicies):
     users = BitVec("users_%d"% conflictedUniqueKeys, 16)
@@ -20,18 +20,20 @@ def addConstraintsInSolver(conflictedPolicies):
     listOfVariables = [users,groups,conflictedPolicies[0]["type"],time]
     for index in range(len(conflictedPolicies)):
 	if conflictedPolicies[index]["rule"] == "comparator":
-	    s.add(conflictedPolicies[0]["type"] > conflictedPolicies[index]["min"])
-	    s.add(conflictedPolicies[0]["type"] < conflictedPolicies[index]["max"])	
-	if conflictedPolicies[index]["time"] != None:
+		if "min" in conflictedPolicies[index].keys():
+	    		s.add(conflictedPolicies[0]["type"] > conflictedPolicies[index]["min"])
+		if "max" in conflictedPolicies[index].keys():
+	    		s.add(conflictedPolicies[0]["type"] < conflictedPolicies[index]["max"])	
+	if ("time" in conflictedPolicies[index].keys()) and conflictedPolicies[index]["time"] != None:
 	    newDate = datetime.strptime(conflictedPolicies[index]["time"], '%Y-%m-%dT%H:%M:%S')
 	    seconds = (newDate - datetime(1970,1,1)).total_seconds()
 	    s.add(time > seconds)
-	if conflictedPolicies[index]["user"] != None:
+	if ("user" in conflictedPolicies[index].keys()) and conflictedPolicies[index]["user"] != None:
 	    args =[]
             for user in conflictedPolicies[index]["user"]:
             	args.append(users == BitVecVal(user,16))
             s.add(Or(*args))
-	if conflictedPolicies[index]["group"] != None:
+	if ("group" in conflictedPolicies[index].keys()) and (conflictedPolicies[index]["group"] != None):
 	    args =[]
             for group in conflictedPolicies[index]["group"]:
             	args.append(groups == BitVecVal(group,16))
@@ -51,28 +53,16 @@ parsedXMLFileDict = helper.parseXMLPolicyFile(policyFile)
 with more than one value, which can then be fed into the SMT solver '''
 
 #make constraints to give it to SMT solver      
-
+isThereAConflict = False
 conflictedUniqueKeys = 1
 for myKey in parsedXMLFileDict.keys():
   if len(parsedXMLFileDict[myKey]) > 1:
+    isThereAConflict = True
     print("-"*20)
     print("There is a conflict in key: " + str(myKey))
     s = Optimize()
     listOfZ3Variables = addConstraintsInSolver(parsedXMLFileDict[myKey])
     print("-->" + str(s.check()) + "\n")
-    '''if s.check() == sat:
-        m = s.model()
-	print(m)
-        for var in listOfZ3Variables:
-		s.add(var != m.eval(var))
-	print(s)	
-	print(s.check())
-	print("*"*20)'''
-    '''while s.check() == sat:
-	m = s.model()
-	print(m)
-	for var in listOfZ3Variables:
-		s.add(var != m.eval(var))'''
     if s.check() == sat:
 	s.push()
 	for var in listOfZ3Variables:
@@ -102,9 +92,6 @@ for myKey in parsedXMLFileDict.keys():
 		s.push()
 		print("\n")
     	conflictedUniqueKeys += 1
+if isThereAConflict == False:
+	print("There was no conflict in policies")
 
-
-
-
-  
-  
