@@ -13,7 +13,14 @@ user = []
 group = []
 globalUserDict = {}
 
-
+def printRequiredValue(var, value):
+	if ("user" in str(var)) or ("groups" in str(var)):
+		for name, id in globalUserDict.iteritems():
+    			if id == value:
+        			print name
+	else:
+		print value
+	
 
 def parseXMLPolicyFile(policyFile):
   #Retrieve the elements from "policyFile" element and fill up our custom data structure

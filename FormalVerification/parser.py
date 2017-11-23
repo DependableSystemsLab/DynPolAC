@@ -13,46 +13,39 @@ import helper
 isBitVec = True
 
 def addConstraintsInSolver(conflictedPolicies):
-    '''user = BitVec("user", 16)
-    users1 = BitVecVal(1,16)
-    users2 = BitVecVal(2,16)
-    users3 = BitVecVal(3,16)
-    s.add(Distinct(user == users1 , user == users2))
-    s.add(Distinct(user == users2 , user == users3))'''
-
+    users = BitVec("users_%d"% conflictedUniqueKeys, 16)
+    groups = BitVec("groups_%d"% conflictedUniqueKeys, 16)
+    time = Int("%s_%s" % ("time", conflictedUniqueKeys))
+    conflictedPolicies[0]["type"] = Int("%s_%s_%s" % (conflictedPolicies[0]["type"], conflictedPolicies[0]["vendor"], conflictedUniqueKeys))
+    listOfVariables = [users,groups,conflictedPolicies[0]["type"],time]
     for index in range(len(conflictedPolicies)):
-	conflictedPolicies[index]["type"] = Int("%s_%s" % (conflictedPolicies[index]["type"], conflictedPolicies[index]["vendor"]))
-	time = Int("%s_%s" % ("time", conflictedUniqueKeys))
-	if not isBitVec:
-		users = Int("%s_%s" % ("users", conflictedUniqueKeys))
-		groups = Int("%s_%s" % ("groups", conflictedUniqueKeys))
-	else:
-		users = BitVec("users", 16)
-	
 	if conflictedPolicies[index]["rule"] == "comparator":
-	    s.add(conflictedPolicies[index]["type"] > conflictedPolicies[index]["min"])
-	    s.add(conflictedPolicies[index]["type"] < conflictedPolicies[index]["max"])	
+	    s.add(conflictedPolicies[0]["type"] > conflictedPolicies[index]["min"])
+	    s.add(conflictedPolicies[0]["type"] < conflictedPolicies[index]["max"])	
 	if conflictedPolicies[index]["time"] != None:
 	    newDate = datetime.strptime(conflictedPolicies[index]["time"], '%Y-%m-%dT%H:%M:%S')
 	    seconds = (newDate - datetime(1970,1,1)).total_seconds()
 	    s.add(time > seconds)
 	if conflictedPolicies[index]["user"] != None:
-	    if isBitVec:
-	        for user in conflictedPolicies[index]["user"]:
-			#users = BitVecVal(user,16)
-	    concatStr = ""
-	    for user in conflictedPolicies[index]["user"]:
-		concatStr = concatStr + "users == " + str(user) + ","
-	    #s.add(Distinct(users == {} % for i in conflictedPolicies[index]["user"]))
-	    s.add(Distinct(BoolVal(concatStr)))
+	    args =[]
+            for user in conflictedPolicies[index]["user"]:
+            	args.append(users == BitVecVal(user,16))
+            s.add(Or(*args))
+	if conflictedPolicies[index]["group"] != None:
+	    args =[]
+            for group in conflictedPolicies[index]["group"]:
+            	args.append(groups == BitVecVal(group,16))
+            s.add(Or(*args))
+    return listOfVariables
 	    
 
+		 
 
 #Parse the input XML file
 tree = etree.parse('samplePolicyFile.xml')  
 policyFile = tree.getroot()                         
 parsedXMLFileDict = helper.parseXMLPolicyFile(policyFile)
-pprint.pprint(dict(parsedXMLFileDict))
+#pprint.pprint(dict(parsedXMLFileDict))
 
 '''Now we have our dictionary and we can check if a key has a list
 with more than one value, which can then be fed into the SMT solver '''
@@ -62,16 +55,53 @@ with more than one value, which can then be fed into the SMT solver '''
 conflictedUniqueKeys = 1
 for myKey in parsedXMLFileDict.keys():
   if len(parsedXMLFileDict[myKey]) > 1:
-    print("There is a conflict in key: ")
-    s = Solver()
-    addConstraintsInSolver(parsedXMLFileDict[myKey])
-    print(s)  
-    print("-"*20)    
-    print(s.check())
-    print("-"*20)    
+    print("-"*20)
+    print("There is a conflict in key: " + str(myKey))
+    s = Optimize()
+    listOfZ3Variables = addConstraintsInSolver(parsedXMLFileDict[myKey])
+    print("-->" + str(s.check()) + "\n")
+    '''if s.check() == sat:
+        m = s.model()
+	print(m)
+        for var in listOfZ3Variables:
+		s.add(var != m.eval(var))
+	print(s)	
+	print(s.check())
+	print("*"*20)'''
+    '''while s.check() == sat:
+	m = s.model()
+	print(m)
+	for var in listOfZ3Variables:
+		s.add(var != m.eval(var))'''
     if s.check() == sat:
-        print(s.model())
-    conflictedUniqueKeys += 1
+	s.push()
+	for var in listOfZ3Variables:
+
+		if ("user" in str(var)) or ("groups" in str(var)):
+			print("Satisfiable value of " + str(var) + " are:")
+			while s.check() == sat:
+				m = s.model()
+				helper.printRequiredValue(var, m.eval(var))
+				s.add(var != m.eval(var))
+		else:
+			v = s.minimize(var)
+			if s.check() == sat:
+				print("Satisfiable range of " + str(var) + " are:")
+				if "time" in str(var):
+					num = v.value()
+					myStr= str(num)
+					print(datetime.fromtimestamp(int(myStr)).strftime('%Y-%m-%dT%H:%M:%S'))
+				else:
+					helper.printRequiredValue(var, v.value())
+				s.pop()  
+				s.push()
+				v2 = s.maximize(var)	
+				if s.check() == sat:
+					helper.printRequiredValue(var, v.value())				
+		s.pop()  
+		s.push()
+		print("\n")
+    	conflictedUniqueKeys += 1
 
 
 
