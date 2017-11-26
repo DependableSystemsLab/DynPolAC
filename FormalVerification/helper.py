@@ -1,19 +1,11 @@
 ## This calls will parse the XML policy file and return it in a dictionary
 
 #Some variables that we will use while parsing and creating our dictionary
-parsedXMLFileDict = {}
-ruleType = ""
-ruleMin = 0
-ruleMax = 0
-description = ""
-type = ""
-vendor = ""
-time = ""
-user = []
-group = []
-globalUserDict = {}
 
-def printRequiredValue(var, value):
+
+
+def printRequiredValue(var, value, globalUserDict):
+	#print(value)
 	if ("user" in str(var)) or ("groups" in str(var)):
 		for name, id in globalUserDict.iteritems():
     			if id == value:
@@ -25,6 +17,17 @@ def printRequiredValue(var, value):
 def parseXMLPolicyFile(policyFile):
   #Retrieve the elements from "policyFile" element and fill up our custom data structure
   #We are creating a dictionary where the rule, type and vendor will serve as a unique key 
+  parsedXMLFileDict = {}
+  globalUserDict = {}
+  ruleType = ""
+  ruleMin = 0
+  ruleMax = 0
+  description = ""
+  type = ""
+  vendor = ""
+  time = ""
+  user = []
+  group = []
   UID = 1
   valueDict = {}
   for policy in policyFile:
@@ -83,5 +86,5 @@ def parseXMLPolicyFile(policyFile):
     parsedXMLFileDict[key] = valueArray
     valueDict = {}
     key = ()
-  return parsedXMLFileDict
+  return parsedXMLFileDict, globalUserDict
 
