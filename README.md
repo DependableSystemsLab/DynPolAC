@@ -3,7 +3,8 @@
 IoT systems are comprised of many nodes with live data communication among them. Some of their environments are also dynamic such that nodes require information passage in <1s intervals. DynaPolAC is an authorization service for data passage between the nodes of dynamic IoT systems.
 
 Here is the roadmap:
-1. **discreteEventSimulator**: this directory has the runner for testing DynPolAC.
+1. **dynPolAC**: Implementation of the policy handling (registration, check and update) with the database.
+2. **discreteEventSimulator**: this directory has the runner for testing DynPolAC.
 
 ```bash
     This application will generate random Objects at psuedo-normal distribution
