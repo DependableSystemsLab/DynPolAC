@@ -2,7 +2,8 @@
 ## Dynamic Policy-based Access Control for IoT nodes
 
 1. discreteEventSimulator: this directory has the runner for testing DynPolAC.
-'''
+
+'''bash
     This application will generate random Objects at psuedo-normal distribution
     rate, then queue the up linearly. The queue is M/M/1 which is the most
     commonly used type of queue for single-processor systems.
