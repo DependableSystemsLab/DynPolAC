@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyFile>
+    <policy>
+        <rule min="0" max="180">comparator</rule>
+        <attributes>
+            <type>temperature</type>
+            <vendor>NASA</vendor>
+            <time>2016-07-16T23:20:30</time>
+            <user></user>
+            <group></group>
+        </attributes>
+    </policy>
+    <policy>
+        <rule min="0" max="180">comparator</rule>
+        <attributes>
+            <type>speed</type>
+            <vendor>NASA</vendor>
+            <time>2016-07-16T23:20:30</time>
+            <user></user>
+            <group></group>
+        </attributes>
+    </policy>
+    <policy>
+        <rule min="0" max="90">comparator</rule>
+        <attributes>
+            <type>positionx</type>
+            <vendor>NASA</vendor>
+            <time>2016-07-16T23:20:30</time>
+            <user></user>
+            <group></group>
+        </attributes>
+    </policy>
+    <policy>
+        <rule min="0" max="180">comparator</rule>
+        <attributes>
+            <type>positiony</type>
+            <vendor>NASA</vendor>
+            <time>2016-07-16T23:20:30</time>
+            <user></user>
+            <group></group>
+        </attributes>
+    </policy>
+    <policy>
+        <rule min="50" max="200">comparator</rule>
+        <attributes>
+            <type>altitude</type>
+            <vendor>NASA</vendor>
+            <time>2016-07-16T23:20:30</time>
+            <user></user>
+            <group></group>
+        </attributes>
+    </policy>
+    <policy>
+        <rule>access</rule>
+        <attributes>
+            <type>password</type>
+            <vendor>NASA</vendor>
+            <time>2016-07-16T23:20:30</time>
+            <user></user>
+            <group></group>
+        </attributes>
+    </policy>
+    <policy>
+        <rule>access</rule>
+        <attributes>
+            <type>fuelLevel</type>
+            <vendor>NASA</vendor>
+            <time>2016-07-16T23:20:30</time>
+            <user></user>
+            <group></group>
+        </attributes>
+    </policy>
+    <policy>
+        <rule>access</rule>
+        <attributes>
+            <type>heading</type>
+            <vendor>NASA</vendor>
+            <time>2016-07-16T23:20:30</time>
+            <user></user>
+            <group></group>
+        </attributes>
+    </policy>
+</policyFile>
