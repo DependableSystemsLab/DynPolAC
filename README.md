@@ -4,6 +4,7 @@ IoT systems are comprised of many nodes with live data communication among them.
 
 Here is the roadmap:
 1. **dynPolAC**: Implementation of the policy handling (registration, check and update) with the database.
+2. **parsePolicy**: Application for parsing the xml and xacml policy files. The policy files must be parsed at the bootup time or start of the test and be registered with your database. In our case we have a posix compliant key-value database that we register the policy files in it.
 2. **discreteEventSimulator**: this directory has the runner for testing DynPolAC.
 
 ```bash
