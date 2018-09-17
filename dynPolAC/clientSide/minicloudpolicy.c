@@ -8,7 +8,7 @@ Policy implementation
 ==============================================================================*/
 
 /*!
- * @addtogroup datapoints
+ * @addtogroup dynpolac
  * @{
  */
 
@@ -232,4 +232,4 @@ int DP_fnPolicyHousekeeping( DPRM_HANDLE dprm_handle )
 }
 
 /*! @}
- * end of libdatapoints group */
+ * end of dynpolac group */
