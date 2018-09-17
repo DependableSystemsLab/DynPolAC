@@ -1,0 +1,29 @@
+# SConscript to build the discreteEventSimulator command
+
+Import('env')
+
+PROGNAME = 'discreteEventSimulator'
+
+srcs = Glob('src/*.c')
+
+myenv = env.Clone()
+
+# libraries
+myenv.Append(LIBS=['minicloud','brushstring'])
+
+# library paths
+myenv.Append(LIBPATH = ['../minicloud',
+	                    '../brushstring'])
+
+# include paths
+myenv.Append(CPPPATH=['../minicloud/inc','../brushstring/inc'])
+
+myenv['USEFILE'] = File(PROGNAME + '.use').srcnode()
+
+binary = myenv.Program(PROGNAME, srcs)
+
+if myenv['PLATFORM'].startswith('qnx'):
+    myenv.AddPostAction(binary, 'usemsg $TARGET $USEFILE')
+
+
+Return('binary')
