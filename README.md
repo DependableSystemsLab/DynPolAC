@@ -3,7 +3,7 @@
 
 1. discreteEventSimulator: this directory has the runner for testing DynPolAC.
 
-'''bash
+```bash
     This application will generate random Objects at psuedo-normal distribution
     rate, then queue the up linearly. The queue is M/M/1 which is the most
     commonly used type of queue for single-processor systems.
@@ -36,6 +36,6 @@
     discreteEventSimulator -l 0.5 -E 1500 -f 7 -p /ubc/Mehdi/rate7.csv
     discreteEventSimulator -l 0.5 -m 3 -s 2 -E 5000 -n 3 -p /ubc/Mehdi/rule3.csv
     discreteEventSimulator -l 0.5 -m 3 -s 2 -E 5000 -q 1 -p /ubc/Mehdi/queue1.csv
-'''
+```
 
 2. FormalVerification: contains scripts to parse the XML policy files and reports if there is any conflict --- Z3 solver is used to see if the constraints are satisfiable.
