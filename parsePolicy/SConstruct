@@ -1,0 +1,104 @@
+###############################################################################
+# Top level SConstruct for building the Inverter Monitor module for the BBB SCB
+###############################################################################
+
+###############################################################################
+#                           Included Modules                                  #
+###############################################################################
+from manifest import manifest
+from meta import meta
+# from azure.storage import BlobService
+# import azuretools
+import buildtools
+import os
+
+
+
+###############################################################################
+#               The main build script starts here                             #
+###############################################################################
+
+# Command line option to build a debug version (Release is the default)
+AddOption('--variant',
+          dest='variant',
+          default='debug',
+          help='Build a selected variant (debug or release)')
+variant = GetOption('variant')
+
+# Command line option to increment the version and upload the file to the cloud
+# --upload_version=true to check of a new version and updating the cloud wi the new version
+AddOption('--upload_version',
+          dest='upload_version',
+          default='false',
+          help='--upload_version=true to check of a new version and updating the cloud wi the new version')
+upload_version = GetOption('upload_version')
+
+# Supported platforms are win32, posix, linux_am335x_evm and qnx_am335x.
+# BBB system board support will come later
+AddOption('--platform',
+          dest='platform',
+          default='qnx_am335x_bbb',
+          help="CPU platform to build on")
+platform = GetOption('platform')
+
+# Build up a default environment
+env = Environment()
+
+if platform is not None:
+    env['PLATFORM'] = platform
+
+
+# Override variant for win32 platform is always debug
+if env['PLATFORM'] in ['win32', 'posix', 'qnx_x86']:
+    env['VARIANT'] = 'debug'
+
+else:
+    env['VARIANT'] = variant
+
+# Select tool chain
+if env['PLATFORM'].startswith('qnx'):
+    env.Tool('qnx', platform=env['PLATFORM'], variant=env['VARIANT'])
+
+elif env['PLATFORM'] == 'posix':
+    env.Append(CCFLAGS=['-g'])
+
+elif env['PLATFORM'] == 'win32':
+    env.Append(CPPDEFINES=['WIN32', 'TABLE_DIV_EN', '_CONSOLE'])
+    env.Append(CFLAGS=['/Z7'])
+
+env.Append(CPPDEFINES=['_32BIT_ARCHITECTURE'])
+
+# Specify the main SConscript
+binary = env.SConscript( 'SConscript', exports='env' )
+
+cmd = buildtools.fnGetUseMsgIString(meta)
+env.AddPostAction(binary, cmd)
+
+# This list specifies the libraries this module needs to build itself
+libs = ['sysvars', 'dynvars', 'expat','permissions']
+
+# Bring in the required libraries 
+# This assumes the SConscript for the  libraries are in ../<library name>/SConscript
+for OneLib in libs:
+    # Build the cfu library from its own SConscript
+    lib_bin = env.SConscript('../%s/SConscript' % OneLib,
+                             exports='env')
+    # install the cfu library
+    env.Install('${PLATFORM}_${VARIANT}', lib_bin)
+
+# adding post action
+print "upload request: %s" % upload_version
+
+#set the version to be uploaded
+# azuretools.meta = meta
+if upload_version == 'true':
+    print "Checking version"
+    #add a post action to upload the newly generated file
+    # env.AddPostAction(binary, azuretools.uploadNewVersionStagedWithMeta)
+if upload_version == 'forced':
+    print "Checking version"
+    #add a post action to upload the newly generated file
+    # env.AddPostAction(binary, azuretools.uploadVersionForcedWithMeta)
+    
+    
+    

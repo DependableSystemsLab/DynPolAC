@@ -1,0 +1,86 @@
+    usage: 
+        defdp
+            [-f <file>] <xml datapoint file> 
+            [-p <xml policy>] <xml policy file>
+            [-P <xacml policy>] <xacml policy file>
+
+            Extra options:
+            [-i <instance ID>] <this option to be deprecated soon, not needed really>
+            [-f <flags>] <flags are never tested just an idea it was.>
+                where flags may be one of:
+                    h=hidden
+                    r=read only
+                    p=protected
+                    v=volatile
+
+    The defdp command allows dynamic creation of
+    data points and policy from XML files
+
+    The XML file takes the following form:
+
+    <?xml version="1.0" encoding="utf-8" ?>
+    <defdp>
+        <point>
+            <name>John.Phone.Application</name>
+            <type>str</type>
+            <format>%s</format>
+            <length>12</length>
+            <value>xxxxxxxx</value>
+            <meta>
+                <tag>type:password</tag>
+                <tag>location:vancouver</tag>
+                <tag>user:jackie</tag>
+                <tag>group:technician</tag>
+            </meta>
+        </point>
+
+        ...
+
+    </defdp>
+        
+    
+    The XML ``policy'' file might look something like this:
+    <?xml version="1.0" encoding="utf-8"?>
+    <policyFile>
+        <policy>
+            <rule min="140" max="1000">comparator</rule>
+            <attributes>
+                <type>current</type>
+                <location>San Francisco</location>
+                <time>2017-02-16T19:20:30</time>
+                <user></user>
+                <group></group>
+            </attributes>
+        </policy>
+
+        ...
+
+    </policyFile>
+
+
+    ----------------------------------------------------------
+   
+    The following is no more valid, it was used in the past as
+    test:
+    
+    HISTORY:
+   
+    The XML parser supports embedded variable tags.
+    
+    eg:
+    <value>${ROOT}/sysinfo.txt</value>
+
+    The defdp command applies the specified instance identifier and
+    flags to all of the data points created.
+
+
+    Using the optional -p <prefix> argument, a common variable name
+    prefix can be added to each created system variable. 
+
+    If the prefix has %d in the name, and the -i option is specified, the %d argument
+    is replaced by the numeric identifier specified in the -i argument.
+
+    -G : Suppress assignment of system variable GUID
+
+    --------------------------------------------------------
+        

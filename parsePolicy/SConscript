@@ -1,0 +1,22 @@
+# SConscript to build the defdp command
+
+Import('env')
+
+PROGNAME = 'defdp'
+
+srcs = Glob('src/*.c')
+
+myenv = env.Clone()
+
+myenv.Append(LIBS=['minicloud', 'expat','brushstring'])
+myenv.Append(CPPPATH=['inc', '../minicloud/inc', '../expat/libs','../brushstring/inc'])
+myenv.Append(LIBPATH=['../minicloud', '../brushstring', '../expat'])
+myenv['USEFILE'] = File(PROGNAME + '.use').srcnode()
+
+binary = myenv.Program(PROGNAME, srcs)
+
+if myenv['PLATFORM'].startswith('qnx'):
+    myenv.AddPostAction(binary, 'usemsg $TARGET $USEFILE')
+
+
+Return('binary')
