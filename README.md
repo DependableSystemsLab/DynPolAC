@@ -1,5 +1,6 @@
 # DynPolAC
-## Dynamic Policy-based Access Control for IoT nodes
+## Dynamic Policy-based Access Control for IoT Systems
+IoT systems are comprised of many nodes with live data communication between them. Some of their environments are also dynamic such that nodes require information passage in <1s intervals. DynaPolAC is an authorization service for data passage between the nodes of dyanmic IoT systems.
 
 Here is the roadmap:
 1. **discreteEventSimulator**: this directory has the runner for testing DynPolAC.
