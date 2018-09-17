@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<defdp>
+  <point>
+    <name>temperature.object.tesla</name>
+    <description>Temperature of the object in Celcius</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>25.5</value>
+    <meta>
+      <tag>type:temperature</tag>
+      <tag>location:Tesla</tag>
+      <tag>user:Bob</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>speed.object.tesla</name>
+    <description>speed of autonomous object in km/h</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>80</value>
+    <meta>
+      <tag>type:speed</tag>
+      <tag>location:Tesla</tag>
+      <tag>user:Mike</tag>
+      <tag>group:Engineering</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Latitude.object.tesla</name>
+    <description>Live position Latitude of autonomous object between 90 and -90 degrees</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>90</value>
+    <meta>
+      <tag>type:positiony</tag>
+      <tag>location:Tesla</tag>
+      <tag>user:Bob</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Longitude.object.tesla</name>
+    <description>Live position Longitude of autonomous object between -180 and 180 degrees</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>180</value>
+    <meta>
+      <tag>type:positiony</tag>
+      <tag>location:Tesla</tag>
+      <tag>user:Bob</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Altitude.object.tesla</name>
+    <description>Live altitude of autonomous object between 50 and 200 allowed for UAS according to NASA</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>50</value>
+    <meta>
+      <tag>type:altitude</tag>
+      <tag>location:Tesla</tag>
+      <tag>user:Madi</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.heading.tesla</name>
+    <description>heading of the Drone</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>North</value>
+    <length>8</length>
+    <meta>
+      <tag>type:heading</tag>
+      <tag>location:Tesla</tag>
+      <tag>user:Tom</tag>
+      <tag>group:Engineering</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.SerialShell.password.tesla</name>
+    <description>Access entry for Drone serial shell</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>t@sL1</value>
+    <length>8</length>
+    <meta>
+      <tag>type:password</tag>
+      <tag>location:Tesla</tag>
+      <tag>user:Gus</tag>
+      <tag>group:Manager</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.Fuel.Level.tesla</name>
+    <description>Fuel Level of Drone</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>full</value>
+    <length>8</length>
+    <meta>
+      <tag>type:FuelLevel</tag>
+      <tag>location:Tesla</tag>
+      <tag>user:Jackie</tag>
+      <tag>group:Technician</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.SshKey.tesla</name>
+    <description>SshKey of the Tesla Drone</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSU
+GPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3
+Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XA
+t3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/En
+mZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbx
+NrRFi9wrf+M7Q== entrance@tesla.object</value>
+    <length>500</length>
+    <meta>
+      <tag>type:password</tag>
+      <tag>location:Tesla</tag>
+      <tag>user:Gus</tag>
+      <tag>group:Manager</tag>
+    </meta>
+  </point>
+  <point>
+    <name>temperature.object.NASA</name>
+    <description>Temperature of the object in Celcius</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>25.5</value>
+    <meta>
+      <tag>type:temperature</tag>
+      <tag>location:NASA</tag>
+      <tag>user:Bob</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>speed.object.NASA</name>
+    <description>speed of autonomous object in km/h</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>80</value>
+    <meta>
+      <tag>type:speed</tag>
+      <tag>location:NASA</tag>
+      <tag>user:Mike</tag>
+      <tag>group:Engineering</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Latitude.object.NASA</name>
+    <description>Live position Latitude of autonomous object between 90 and -90 degrees</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>90</value>
+    <meta>
+      <tag>type:positiony</tag>
+      <tag>location:NASA</tag>
+      <tag>user:Bob</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Longitude.object.NASA</name>
+    <description>Live position Longitude of autonomous object between -180 and 180 degrees</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>180</value>
+    <meta>
+      <tag>type:positiony</tag>
+      <tag>location:NASA</tag>
+      <tag>user:Bob</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Altitude.object.NASA</name>
+    <description>Live altitude of autonomous object between 50 and 200 allowed for UAS according to NASA</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>50</value>
+    <meta>
+      <tag>type:altitude</tag>
+      <tag>location:NASA</tag>
+      <tag>user:Madi</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.heading.NASA</name>
+    <description>heading of the Drone</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>North</value>
+    <length>8</length>
+    <meta>
+      <tag>type:heading</tag>
+      <tag>location:NASA</tag>
+      <tag>user:Tom</tag>
+      <tag>group:Engineering</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.SerialShell.password.NASA</name>
+    <description>Access entry for Drone serial shell</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>t@sL1</value>
+    <length>8</length>
+    <meta>
+      <tag>type:password</tag>
+      <tag>location:NASA</tag>
+      <tag>user:Gus</tag>
+      <tag>group:Manager</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.Fuel.Level.NASA</name>
+    <description>Fuel Level of Drone</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>full</value>
+    <length>8</length>
+    <meta>
+      <tag>type:FuelLevel</tag>
+      <tag>location:NASA</tag>
+      <tag>user:Jackie</tag>
+      <tag>group:Technician</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.SshKey.NASA</name>
+    <description>SshKey of the NASA Drone</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSU
+GPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3
+Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XA
+t3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/En
+mZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbx
+NrRFi9wrf+M7Q== entrance@NASA.object</value>
+    <length>500</length>
+    <meta>
+      <tag>type:password</tag>
+      <tag>location:NASA</tag>
+      <tag>user:Gus</tag>
+      <tag>group:Manager</tag>
+    </meta>
+  </point>
+  <point>
+    <name>temperature.object.Latas</name>
+    <description>Temperature of the object in Celcius</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>25.5</value>
+    <meta>
+      <tag>type:temperature</tag>
+      <tag>location:Latas</tag>
+      <tag>user:Bob</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>speed.object.Latas</name>
+    <description>speed of autonomous object in km/h</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>80</value>
+    <meta>
+      <tag>type:speed</tag>
+      <tag>location:Latas</tag>
+      <tag>user:Mike</tag>
+      <tag>group:Engineering</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Latitude.object.Latas</name>
+    <description>Live position Latitude of autonomous object between 90 and -90 degrees</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>90</value>
+    <meta>
+      <tag>type:positiony</tag>
+      <tag>location:Latas</tag>
+      <tag>user:Bob</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Longitude.object.Latas</name>
+    <description>Live position Longitude of autonomous object between -180 and 180 degrees</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>180</value>
+    <meta>
+      <tag>type:positiony</tag>
+      <tag>location:Latas</tag>
+      <tag>user:Bob</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Altitude.object.Latas</name>
+    <description>Live altitude of autonomous object between 50 and 200 allowed for UAS according to NASA</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>50</value>
+    <meta>
+      <tag>type:altitude</tag>
+      <tag>location:Latas</tag>
+      <tag>user:Madi</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.heading.Latas</name>
+    <description>heading of the Drone</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>North</value>
+    <length>8</length>
+    <meta>
+      <tag>type:heading</tag>
+      <tag>location:Latas</tag>
+      <tag>user:Tom</tag>
+      <tag>group:Engineering</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.SerialShell.password.Latas</name>
+    <description>Access entry for Drone serial shell</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>t@sL1</value>
+    <length>8</length>
+    <meta>
+      <tag>type:password</tag>
+      <tag>location:Latas</tag>
+      <tag>user:Gus</tag>
+      <tag>group:Manager</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.Fuel.Level.Latas</name>
+    <description>Fuel Level of Drone</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>full</value>
+    <length>8</length>
+    <meta>
+      <tag>type:FuelLevel</tag>
+      <tag>location:Latas</tag>
+      <tag>user:Jackie</tag>
+      <tag>group:Technician</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.SshKey.Latas</name>
+    <description>SshKey of the Latas Drone</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSU
+GPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3
+Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XA
+t3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/En
+mZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbx
+NrRFi9wrf+M7Q== entrance@Latas.object</value>
+    <length>500</length>
+    <meta>
+      <tag>type:password</tag>
+      <tag>location:Latas</tag>
+      <tag>user:Gus</tag>
+      <tag>group:Manager</tag>
+    </meta>
+  </point>
+  <point>
+    <name>temperature.object.Rakuten</name>
+    <description>Temperature of the object in Celcius</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>25.5</value>
+    <meta>
+      <tag>type:temperature</tag>
+      <tag>location:Rakuten</tag>
+      <tag>user:Bob</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>speed.object.Rakuten</name>
+    <description>speed of autonomous object in km/h</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>80</value>
+    <meta>
+      <tag>type:speed</tag>
+      <tag>location:Rakuten</tag>
+      <tag>user:Mike</tag>
+      <tag>group:Engineering</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Latitude.object.Rakuten</name>
+    <description>Live position Latitude of autonomous object between 90 and -90 degrees</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>90</value>
+    <meta>
+      <tag>type:positiony</tag>
+      <tag>location:Rakuten</tag>
+      <tag>user:Bob</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Longitude.object.Rakuten</name>
+    <description>Live position Longitude of autonomous object between -180 and 180 degrees</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>180</value>
+    <meta>
+      <tag>type:positiony</tag>
+      <tag>location:Rakuten</tag>
+      <tag>user:Bob</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Altitude.object.Rakuten</name>
+    <description>Live altitude of autonomous object between 50 and 200 allowed for UAS according to NASA</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>50</value>
+    <meta>
+      <tag>type:altitude</tag>
+      <tag>location:Rakuten</tag>
+      <tag>user:Madi</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.heading.Rakuten</name>
+    <description>heading of the Drone</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>North</value>
+    <length>8</length>
+    <meta>
+      <tag>type:heading</tag>
+      <tag>location:Rakuten</tag>
+      <tag>user:Tom</tag>
+      <tag>group:Engineering</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.SerialShell.password.Rakuten</name>
+    <description>Access entry for Drone serial shell</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>t@sL1</value>
+    <length>8</length>
+    <meta>
+      <tag>type:password</tag>
+      <tag>location:Rakuten</tag>
+      <tag>user:Gus</tag>
+      <tag>group:Manager</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.Fuel.Level.Rakuten</name>
+    <description>Fuel Level of Drone</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>full</value>
+    <length>8</length>
+    <meta>
+      <tag>type:FuelLevel</tag>
+      <tag>location:Rakuten</tag>
+      <tag>user:Jackie</tag>
+      <tag>group:Technician</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.SshKey.Rakuten</name>
+    <description>SshKey of the Rakuten Drone</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSU
+GPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3
+Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XA
+t3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/En
+mZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbx
+NrRFi9wrf+M7Q== entrance@Rakuten.object</value>
+    <length>500</length>
+    <meta>
+      <tag>type:password</tag>
+      <tag>location:Rakuten</tag>
+      <tag>user:Gus</tag>
+      <tag>group:Manager</tag>
+    </meta>
+  </point>
+  <point>
+    <name>temperature.object.Google</name>
+    <description>Temperature of the object in Celcius</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>25.5</value>
+    <meta>
+      <tag>type:temperature</tag>
+      <tag>location:Google</tag>
+      <tag>user:Bob</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>speed.object.Google</name>
+    <description>speed of autonomous object in km/h</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>80</value>
+    <meta>
+      <tag>type:speed</tag>
+      <tag>location:Google</tag>
+      <tag>user:Mike</tag>
+      <tag>group:Engineering</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Latitude.object.Google</name>
+    <description>Live position Latitude of autonomous object between 90 and -90 degrees</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>90</value>
+    <meta>
+      <tag>type:positiony</tag>
+      <tag>location:Google</tag>
+      <tag>user:Bob</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Longitude.object.Google</name>
+    <description>Live position Longitude of autonomous object between -180 and 180 degrees</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>180</value>
+    <meta>
+      <tag>type:positiony</tag>
+      <tag>location:Google</tag>
+      <tag>user:Bob</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Altitude.object.Google</name>
+    <description>Live altitude of autonomous object between 50 and 200 allowed for UAS according to NASA</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>50</value>
+    <meta>
+      <tag>type:altitude</tag>
+      <tag>location:Google</tag>
+      <tag>user:Madi</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.heading.Google</name>
+    <description>heading of the Drone</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>North</value>
+    <length>8</length>
+    <meta>
+      <tag>type:heading</tag>
+      <tag>location:Google</tag>
+      <tag>user:Tom</tag>
+      <tag>group:Engineering</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.SerialShell.password.Google</name>
+    <description>Access entry for Drone serial shell</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>t@sL1</value>
+    <length>8</length>
+    <meta>
+      <tag>type:password</tag>
+      <tag>location:Google</tag>
+      <tag>user:Gus</tag>
+      <tag>group:Manager</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.Fuel.Level.Google</name>
+    <description>Fuel Level of Drone</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>full</value>
+    <length>8</length>
+    <meta>
+      <tag>type:FuelLevel</tag>
+      <tag>location:Google</tag>
+      <tag>user:Jackie</tag>
+      <tag>group:Technician</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.SshKey.Google</name>
+    <description>SshKey of the Google Drone</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSU
+GPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3
+Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XA
+t3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/En
+mZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbx
+NrRFi9wrf+M7Q== entrance@Google.object</value>
+    <length>500</length>
+    <meta>
+      <tag>type:password</tag>
+      <tag>location:Google</tag>
+      <tag>user:Gus</tag>
+      <tag>group:Manager</tag>
+    </meta>
+  </point>
+  <point>
+    <name>temperature.object.Intel</name>
+    <description>Temperature of the object in Celcius</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>25.5</value>
+    <meta>
+      <tag>type:temperature</tag>
+      <tag>location:Intel</tag>
+      <tag>user:Bob</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>speed.object.Intel</name>
+    <description>speed of autonomous object in km/h</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>80</value>
+    <meta>
+      <tag>type:speed</tag>
+      <tag>location:Intel</tag>
+      <tag>user:Mike</tag>
+      <tag>group:Engineering</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Latitude.object.Intel</name>
+    <description>Live position Latitude of autonomous object between 90 and -90 degrees</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>90</value>
+    <meta>
+      <tag>type:positiony</tag>
+      <tag>location:Intel</tag>
+      <tag>user:Bob</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Longitude.object.Intel</name>
+    <description>Live position Longitude of autonomous object between -180 and 180 degrees</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>180</value>
+    <meta>
+      <tag>type:positiony</tag>
+      <tag>location:Intel</tag>
+      <tag>user:Bob</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Altitude.object.Intel</name>
+    <description>Live altitude of autonomous object between 50 and 200 allowed for UAS according to NASA</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>50</value>
+    <meta>
+      <tag>type:altitude</tag>
+      <tag>location:Intel</tag>
+      <tag>user:Madi</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.heading.Intel</name>
+    <description>heading of the Drone</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>North</value>
+    <length>8</length>
+    <meta>
+      <tag>type:heading</tag>
+      <tag>location:Intel</tag>
+      <tag>user:Tom</tag>
+      <tag>group:Engineering</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.SerialShell.password.Intel</name>
+    <description>Access entry for Drone serial shell</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>t@sL1</value>
+    <length>8</length>
+    <meta>
+      <tag>type:password</tag>
+      <tag>location:Intel</tag>
+      <tag>user:Gus</tag>
+      <tag>group:Manager</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.Fuel.Level.Intel</name>
+    <description>Fuel Level of Drone</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>full</value>
+    <length>8</length>
+    <meta>
+      <tag>type:FuelLevel</tag>
+      <tag>location:Intel</tag>
+      <tag>user:Jackie</tag>
+      <tag>group:Technician</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.SshKey.Intel</name>
+    <description>SshKey of the Intel Drone</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSU
+GPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3
+Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XA
+t3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/En
+mZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbx
+NrRFi9wrf+M7Q== entrance@Intel.object</value>
+    <length>500</length>
+    <meta>
+      <tag>type:password</tag>
+      <tag>location:Intel</tag>
+      <tag>user:Gus</tag>
+      <tag>group:Manager</tag>
+    </meta>
+  </point>
+  <point>
+    <name>temperature.object.NASA</name>
+    <description>Temperature of the object in Celcius</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>25.5</value>
+    <meta>
+      <tag>type:temperature</tag>
+      <tag>location:NASA</tag>
+      <tag>user:Bob</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>speed.object.NASA</name>
+    <description>speed of autonomous object in km/h</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>80</value>
+    <meta>
+      <tag>type:speed</tag>
+      <tag>location:NASA</tag>
+      <tag>user:Mike</tag>
+      <tag>group:Engineering</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Latitude.object.NASA</name>
+    <description>Live position Latitude of autonomous object between 90 and -90 degrees</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>90</value>
+    <meta>
+      <tag>type:positiony</tag>
+      <tag>location:NASA</tag>
+      <tag>user:Bob</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Longitude.object.NASA</name>
+    <description>Live position Longitude of autonomous object between -180 and 180 degrees</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>180</value>
+    <meta>
+      <tag>type:positiony</tag>
+      <tag>location:NASA</tag>
+      <tag>user:Bob</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Altitude.object.NASA</name>
+    <description>Live altitude of autonomous object between 50 and 200 allowed for UAS according to NASA</description>
+    <type>float</type>
+    <format>%0.2f</format>
+    <value>50</value>
+    <meta>
+      <tag>type:altitude</tag>
+      <tag>location:NASA</tag>
+      <tag>user:Madi</tag>
+      <tag>group:Customer</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.heading.NASA</name>
+    <description>heading of the Drone</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>North</value>
+    <length>8</length>
+    <meta>
+      <tag>type:heading</tag>
+      <tag>location:NASA</tag>
+      <tag>user:Tom</tag>
+      <tag>group:Engineering</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.SerialShell.password.NASA</name>
+    <description>Access entry for Drone serial shell</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>t@sL1</value>
+    <length>8</length>
+    <meta>
+      <tag>type:password</tag>
+      <tag>location:NASA</tag>
+      <tag>user:Gus</tag>
+      <tag>group:Manager</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.Fuel.Level.NASA</name>
+    <description>Fuel Level of Drone</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>full</value>
+    <length>8</length>
+    <meta>
+      <tag>type:FuelLevel</tag>
+      <tag>location:NASA</tag>
+      <tag>user:Jackie</tag>
+      <tag>group:Technician</tag>
+    </meta>
+  </point>
+  <point>
+    <name>Drone.SshKey.NASA</name>
+    <description>SshKey of the NASA Drone</description>
+    <type>str</type>
+    <format>%s</format>
+    <value>ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSU
+GPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3
+Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XA
+t3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/En
+mZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbx
+NrRFi9wrf+M7Q== entrance@NASA.object</value>
+    <length>500</length>
+    <meta>
+      <tag>type:password</tag>
+      <tag>location:NASA</tag>
+      <tag>user:Gus</tag>
+      <tag>group:Manager</tag>
+    </meta>
+  </point>
+</defdp>
