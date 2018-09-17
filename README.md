@@ -41,4 +41,6 @@ Here is the roadmap:
 
 2. **samplePolicy**: Some previously used policy files are provided.
 3. **sampleDB**: A sample data base is provided. The database is parsed one time by your database application. Once data are ready to be queried, you can use posix message passing mechanism to query the database.
-4. **FormalVerification**: contains scripts to parse the XML policy files and reports if there is any conflict --- Z3 solver is used to see if the constraints are satisfiable.
+4. **scripts**: Scripts written to automate simulation. Take these scripts as a guideline. You have to come up with your scripts in your system depending on how you run the database. Everytime, to get correct results, you have to kill your database and create a new one.
+5. **FormalVerification**: contains scripts to parse the XML policy files and reports if there is any conflict --- Z3 solver is used to see if the constraints are satisfiable.
+
