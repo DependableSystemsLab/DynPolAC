@@ -1,7 +1,7 @@
 # DynPolAC
 ## Dynamic Policy-based Access Control for IoT nodes
 
-1. discreteEventSimulator: this directory has the runner for testing DynPolAC.
+1. **discreteEventSimulator**: this directory has the runner for testing DynPolAC.
 
 ```bash
     This application will generate random Objects at psuedo-normal distribution
@@ -38,4 +38,6 @@
     discreteEventSimulator -l 0.5 -m 3 -s 2 -E 5000 -q 1 -p /ubc/Mehdi/queue1.csv
 ```
 
-2. FormalVerification: contains scripts to parse the XML policy files and reports if there is any conflict --- Z3 solver is used to see if the constraints are satisfiable.
+2. **samplePolicy**: Some previously used policy files are provided.
+3. **sampleDB**: A sample data base is provided. The database is parsed one time by your database application. Once data are ready to be queried, you can use posix message passing mechanism to query the database.
+4. **FormalVerification**: contains scripts to parse the XML policy files and reports if there is any conflict --- Z3 solver is used to see if the constraints are satisfiable.
