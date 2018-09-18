@@ -5,7 +5,59 @@ IoT systems are comprised of many nodes with live data communication among them.
 Here is the roadmap:
 1. **dynPolAC**: Implementation of the policy handling (registration, check and update) with the database.
 2. **parsePolicy**: Application for parsing the xml and xacml policy files. The policy files must be parsed at the bootup time or start of the test and be registered with your database. In our case we have a posix compliant key-value database that we register the policy files in it.
-2. **discreteEventSimulator**: this directory has the runner for testing DynPolAC.
+```bash
+  usage:
+        defdp
+            [-f <file>] <xml datapoint file>
+            [-p <xml policy>] <xml policy file>
+            [-P <xacml policy>] <xacml policy file>
+
+    The defdp command allows dynamic creation of
+    data points and policy from XML files
+
+    The XML file takes the following form:
+
+    <?xml version="1.0" encoding="utf-8" ?>
+    <defdp>
+        <point>
+            <name>John.Phone.Application</name>
+            <type>str</type>
+            <format>%s</format>
+            <length>12</length>
+            <value>xxxxxxxx</value>
+            <meta>
+                <tag>type:password</tag>
+                <tag>location:vancouver</tag>
+                <tag>user:jackie</tag>
+                <tag>group:technician</tag>
+            </meta>
+        </point>
+
+        ...
+
+    </defdp>
+
+
+    The XML ``policy'' file might look something like this:
+    <?xml version="1.0" encoding="utf-8"?>
+    <policyFile>
+        <policy>
+            <rule min="140" max="1000">comparator</rule>
+            <attributes>
+                <type>current</type>
+                <location>San Francisco</location>
+                <time>2017-02-16T19:20:30</time>
+                <user></user>
+                <group></group>
+            </attributes>
+        </policy>
+
+        ...
+
+    </policyFile>
+```
+
+3. **discreteEventSimulator**: this directory has the runner for testing DynPolAC.
 
 ```bash
     This application will generate random Objects at psuedo-normal distribution
@@ -42,8 +94,7 @@ Here is the roadmap:
     discreteEventSimulator -l 0.5 -m 3 -s 2 -E 5000 -q 1 -p /ubc/Mehdi/queue1.csv
 ```
 
-2. **samplePolicy**: Some previously used policy files are provided.
-3. **sampleDB**: A sample data base is provided. The database is parsed one time by your database application. Once data are ready to be queried, you can use posix message passing mechanism to query the database.
-4. **scripts**: Scripts written to automate simulation. Take these scripts as a guideline. You have to come up with your scripts in your system depending on how you run the database. Everytime, to get correct results, you have to kill your database and create a new one.
-5. **FormalVerification**: contains scripts to parse the XML policy files and reports if there is any conflict --- Z3 solver is used to see if the constraints are satisfiable.
-
+4. **samplePolicy**: Some previously used policy files are provided.
+5. **sampleDB**: A sample data base is provided. The database is parsed one time by your database application. Once data are ready to be queried, you can use posix message passing mechanism to query the database.
+6. **scripts**: Scripts written to automate simulation. Take these scripts as a guideline. You have to come up with your scripts in your system depending on how you run the database. Everytime, to get correct results, you have to kill your database and create a new one.
+7. **FormalVerification**: contains scripts to parse the XML policy files and reports if there is any conflict --- Z3 solver is used to see if the constraints are satisfiable.
