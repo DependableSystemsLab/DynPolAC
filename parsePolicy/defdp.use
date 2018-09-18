@@ -56,31 +56,4 @@
         ...
 
     </policyFile>
-
-
-    ----------------------------------------------------------
-   
-    The following is no more valid, it was used in the past as
-    test:
-    
-    HISTORY:
-   
-    The XML parser supports embedded variable tags.
-    
-    eg:
-    <value>${ROOT}/sysinfo.txt</value>
-
-    The defdp command applies the specified instance identifier and
-    flags to all of the data points created.
-
-
-    Using the optional -p <prefix> argument, a common variable name
-    prefix can be added to each created system variable. 
-
-    If the prefix has %d in the name, and the -i option is specified, the %d argument
-    is replaced by the numeric identifier specified in the -i argument.
-
-    -G : Suppress assignment of system variable GUID
-
-    --------------------------------------------------------
         
