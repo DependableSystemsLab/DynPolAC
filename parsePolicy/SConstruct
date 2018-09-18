@@ -1,5 +1,5 @@
 ###############################################################################
-# Top level SConstruct for building the Inverter Monitor module for the BBB SCB
+# Top level SConstruct for building the target
 ###############################################################################
 
 ###############################################################################
@@ -7,12 +7,8 @@
 ###############################################################################
 from manifest import manifest
 from meta import meta
-# from azure.storage import BlobService
-# import azuretools
 import buildtools
 import os
-
-
 
 ###############################################################################
 #               The main build script starts here                             #
@@ -93,12 +89,6 @@ print "upload request: %s" % upload_version
 # azuretools.meta = meta
 if upload_version == 'true':
     print "Checking version"
-    #add a post action to upload the newly generated file
-    # env.AddPostAction(binary, azuretools.uploadNewVersionStagedWithMeta)
+
 if upload_version == 'forced':
-    print "Checking version"
-    #add a post action to upload the newly generated file
-    # env.AddPostAction(binary, azuretools.uploadVersionForcedWithMeta)
-    
-    
-    
+    print "Checking version"  
