@@ -2,7 +2,7 @@
 ## Dynamic Policy-based Access Control for IoT Systems
 IoT systems are comprised of many nodes with live data communication among them. Some of their environments are also dynamic and moving such that their nodes require information handshake in <1s intervals. DynaPolAC is an authorization service for data passage between the nodes of dynamic IoT systems.
 
-###### Note:
+#Prerequisites
 To connect to and run DynPolAC, please use a posix-based database with message passing IPC quality. DynPolAC needs to be instantiated in the database code and connected to your server. We have instantiated DynPolAC in a real-time operating system (RTOS) called QNX offered by BlackBerry with our custom-made server. If you have any questions about how to instantiate DynPolAC, please contact the author at mkarimib at ece dot ubc dot ca.
 
 Here is the roadmap:
@@ -101,3 +101,7 @@ Here is the roadmap:
 5. **sampleDB**: A sample data base is provided. The database is parsed one time by your database application. Once data are ready to be queried, you can use posix message passing mechanism to query the database.
 6. **scripts**: Scripts written to automate simulation. Take these scripts as a guideline. You have to come up with your scripts in your system depending on how you run the database. Everytime, to get correct results, you have to kill your database and create a new one.
 7. **FormalVerification**: contains scripts to parse the XML policy files and reports if there is any conflict --- Z3 solver is used to see if the constraints are satisfiable.
+
+# Paper
+_Link to be added_
+DynPolAC: Dynamic Policy-based Access Control for IoT Systems
