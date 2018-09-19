@@ -3,7 +3,8 @@
 IoT systems are comprised of many nodes with live data communication among them. Some of their environments are also dynamic and moving such that their nodes require information handshake in <1s intervals. DynaPolAC is an authorization service for data passage between the nodes of dynamic IoT systems.
 
 ## Prerequisites
-To connect to and run DynPolAC, please use a posix-based database with message passing IPC quality. DynPolAC needs to be instantiated in the database code and connected to your server. We have instantiated DynPolAC in a real-time operating system (RTOS) called QNX offered by BlackBerry with our custom-made server. If you have any questions about how to instantiate DynPolAC, please contact the author at mkarimib at ece dot ubc dot ca.
+DynPolAC is tested in QNX platform with a custom-made databse. To connect to and run DynPolAC, you'd need to use a posix-based database with message passing IPC quality. DynPolAC needs to be instantiated in the database code and connected to your server.
+If you need guidance about how to instantiate DynPolAC, please contact the author at mkarimib at ece dot ubc dot ca.
 
 ## Direcotry Structure:
 1. **dynPolAC**: Implementation of the policy handling (registration, check and update) with the database.
