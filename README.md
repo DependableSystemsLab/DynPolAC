@@ -104,5 +104,5 @@ If you need guidance about how to instantiate DynPolAC, please contact the autho
 7. **FormalVerification**: contains scripts to parse the XML policy files and reports if there is any conflict --- Z3 solver is used to see if the constraints are satisfiable.
 
 ## Paper
-_Link to be added_
-DynPolAC: Dynamic Policy-based Access Control for IoT Systems
+[DynPolAC: Dynamic Policy-based Access Control for IoT Systems](https://blogs.ubc.ca/karthik/2018/09/25/dynpolac-dynamic-policy-based-access-control-for-iot-systems/)
+
